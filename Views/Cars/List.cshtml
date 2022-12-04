@@ -1,0 +1,27 @@
+﻿@using Shop1.ViewModels
+@model CarsListViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta nameme="viewport" content="widht=device-widht" />
+    <title>List</title>
+</head>
+<body>
+    <h1>Всі автомобілі</h1>
+    <h3>@Model.CurrCategory</h3>
+    @{
+        foreach (var car in Model.allCars)
+        {
+            <div>
+                <h2>Модель: @car.name</h2>
+                <p>Ціна: @car.price.ToString("C")</p>
+            </div>
+        }
+    }
+</body>
+</html>

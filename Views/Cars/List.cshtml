@@ -1,27 +1,17 @@
-﻿@using Shop1.ViewModels
-@model CarsListViewModel
-
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta nameme="viewport" content="widht=device-widht" />
-    <title>List</title>
-</head>
-<body>
+﻿
     <h1>Всі автомобілі</h1>
     <h3>@Model.CurrCategory</h3>
+    <div class ="row mt-5 mb-2">
     @{
         foreach (var car in Model.allCars)
         {
-            <div>
-                <h2>Модель: @car.name</h2>
+            <div class="col-lg-4">
+                <img class ="img-thumbnail" src="@car.img" alt="@car.name"/>
+                <h2>@car.name</h2>
+                <p>@car.shortDesc</p>
                 <p>Ціна: @car.price.ToString("C")</p>
+                <p><a class="btn btn-warning" href = "#">Детальніше</a></p>
             </div>
         }
     }
-</body>
-</html>
+    </div>

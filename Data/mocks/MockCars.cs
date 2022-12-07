@@ -39,10 +39,34 @@ public class MockCars : IAllCars
 
             new Car()
             {
+                name = "Lamborghini",
+                shortDesc = "Чисто бульбу з села привезти. Не бита",
+                longDesc = "Їде краще любого трактора",
+                img = "/img/Lambo.jpg",
+                price = 999000,
+                isFavourite = true,
+                available = true,
+                Category = _categoryCars.AllCategories.First()
+            },
+
+            new Car()
+            {
                 name = "Таврія",
                 shortDesc = "Відро з болтами для душі",
                 longDesc = "Не їде, максимальна швидеість - 000 км/год. Безцінні емоції!",
                 img = "/img/Tavriia.jpg",
+                price = 900,
+                isFavourite = true,
+                available = true,
+                Category = _categoryCars.AllCategories.First()
+            },
+
+            new Car()
+            {
+                name = "Запорожець",
+                shortDesc = "Не машина - легенда",
+                longDesc = "Мотор як бензопили, їде трохи швидше",
+                img = "/img/Zapor.jpg",
                 price = 900,
                 isFavourite = true,
                 available = true,

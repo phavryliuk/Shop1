@@ -13,15 +13,30 @@ public class MockCars : IAllCars
     public IEnumerable<Car> Cars =>
         new List<Car>
         {
+
+
+
             new Car()
             {
-                name = "Tesla", 
-                shortDesc = "Сучасний електромобіль", 
-                longDesc = "Заряду батареї вистачає на 1000 км, максимальна швидеість - 300 км/год. Купуйте!", 
-                img = "/img/Tesla.jpg", 
-                price = 50000, 
+                name = "Запорожець",
+                shortDesc = "Не машина - легенда",
+                longDesc = "Мотор як бензопили, їде трохи швидше",
+                img = "/img/Zapor.jpg",
+                price = 900,
                 isFavourite = true,
-                available = true, 
+                available = true,
+                Category = _categoryCars.AllCategories.First()
+            },
+
+            new Car()
+            {
+                name = "Tesla",
+                shortDesc = "Сучасний електромобіль",
+                longDesc = "Заряду батареї вистачає на 1000 км, максимальна швидеість - 300 км/год. Купуйте!",
+                img = "/img/Tesla.jpg",
+                price = 50000,
+                isFavourite = true,
+                available = true,
                 Category = _categoryCars.AllCategories.First()
             },
 
@@ -61,17 +76,7 @@ public class MockCars : IAllCars
                 Category = _categoryCars.AllCategories.First()
             },
 
-            new Car()
-            {
-                name = "Запорожець",
-                shortDesc = "Не машина - легенда",
-                longDesc = "Мотор як бензопили, їде трохи швидше",
-                img = "/img/Zapor.jpg",
-                price = 900,
-                isFavourite = true,
-                available = true,
-                Category = _categoryCars.AllCategories.First()
-            },
+
         };
 
     public IEnumerable<Car> GetFavCars { get; set; }

@@ -1,6 +1,6 @@
 ﻿
     <h1>Автомобілі в наявності</h1>
-    <h3>@Model.CurrCategory</h3>
+  @*  <h3>@Model.CurrCategory</h3>*@
     <div class ="row mt-5 mb-2">
     @{
         foreach (var car in Model.allCars)
@@ -9,7 +9,7 @@
                 <img class ="img-thumbnail" src="@car.img" alt="@car.name"/>
                 <h2>@car.name</h2>
                 <p>@car.shortDesc</p>
-                <p>Ціна: @car.price.ToString("C")</p>
+                <h6>Ціна: @car.price.ToString("C")</h6>
 
 
 

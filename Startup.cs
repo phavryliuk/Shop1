@@ -5,12 +5,16 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using Shop1.Data.interfaces;
-using Shop1.Data.mocks;
+
 
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Shop1.Data;
+using Shop1.Data.Repository;
+using IWebHostEnvironment = Microsoft.AspNetCore.Hosting.IWebHostEnvironment;
 
 
 namespace Shop1;
@@ -20,7 +24,12 @@ public class Startup
 
 
 
+    private IConfigurationRoot _confstring;
 
+    public Startup(IWebHostEnvironment hostEnv)
+    {
+        _confstring = new ConfigurationBuilder().SetBasePath(hostEnv.ContentRootPath).AddJsonFile("dbsettings.json").Build();
+    }
 
 
     public Startup(IConfiguration configuration)
@@ -33,10 +42,12 @@ public class Startup
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddTransient<IAllCars, MockCars>();
-        services.AddTransient<ICarsCategory, MockCategory>();
+        services.AddTransient<IAllCars, CarRepository>();
+        services.AddTransient<ICarsCategory, CategoryRepository>();
         services.AddControllersWithViews();
         services.AddMvc();
+        services.AddDbContext<AppDbContent>(options => 
+            options.UseSqlServer(_confstring.GetConnectionString("DefaultConnection")));
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +67,13 @@ public class Startup
         app.UseDeveloperExceptionPage();
         app.UseStatusCodePages();
         app.UseStaticFiles();
-        //app.UseMvcWithDefaultRoute();
+        ////app.UseMvcWithDefaultRoute();
+
+        using (var scope = app.ApplicationServices.CreateScope())
+        {
+            AppDbContent content = scope.ServiceProvider.GetRequiredService<AppDbContent>();
+            DBObjects.Initial(content);
+        }
 
         app.UseHttpsRedirection();
 

@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Shop1.Data;
+using Shop1.Data.Models;
 using Shop1.Data.Repository;
 using IWebHostEnvironment = Microsoft.AspNetCore.Hosting.IWebHostEnvironment;
 
@@ -42,12 +43,18 @@ public class Startup
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddDbContext<AppDbContent>(options =>
+            options.UseSqlServer(_confstring.GetConnectionString("DefaultConnection")));
         services.AddTransient<IAllCars, CarRepository>();
         services.AddTransient<ICarsCategory, CategoryRepository>();
         services.AddControllersWithViews();
+
+
+        services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+        services.AddScoped(sp => ShopCart.GetCart(sp));
         services.AddMvc();
-        services.AddDbContext<AppDbContent>(options => 
-            options.UseSqlServer(_confstring.GetConnectionString("DefaultConnection")));
+        services.AddMemoryCache();
+        services.AddSession();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,7 +74,10 @@ public class Startup
         app.UseDeveloperExceptionPage();
         app.UseStatusCodePages();
         app.UseStaticFiles();
-        ////app.UseMvcWithDefaultRoute();
+        app.UseSession();
+
+
+        //app.UseMvcWithDefaultRoute();
 
         using (var scope = app.ApplicationServices.CreateScope())
         {

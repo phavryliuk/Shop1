@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using Shop1.Data.Models;
+using Shop1.Models;
 
 
 namespace Shop1.Data
@@ -14,6 +15,8 @@ namespace Shop1.Data
 
         public DbSet<Car> Car { get; set; }
         public DbSet<Category> Category { get; set; }
+
+        public DbSet<ShopCartItem> ShopCartItem { get; set; }
 
     }
 }

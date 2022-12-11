@@ -1,17 +1,10 @@
-﻿
-    <h1>Автомобілі в наявності</h1>
+﻿    <h1>Автомобілі в наявності</h1>
     <h3>@Model.CurrCategory</h3>
     <div class ="row mt-5 mb-2">
     @{
-        foreach (var car in Model.allCars)
+        foreach (Car car in Model.allCars)
         {
-            <div class="col-lg-4">
-                <img class ="img-thumbnail" src="@car.img" alt="@car.name"/>
-                <h2>@car.name</h2>
-                <p>@car.shortDesc</p>
-                <h6>Ціна: @car.price.ToString("C")</h6>
-                <p><a class="btn btn-warning" href="https://localhost:44370/Home/CarPage">Детальніше</a></p>
-            </div>
+            @Html.Partial("AllCars", car)
         }
     }
     </div>

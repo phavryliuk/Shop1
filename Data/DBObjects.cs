@@ -29,7 +29,7 @@ namespace Shop1.Data
                         price = 900,
                         isFavourite = true,
                         available = true,
-                        Category = Categories["Електромобілі"]
+                        Category = Categories["Класичні автомобілі"]
                     },
 
             new Car()
@@ -53,7 +53,7 @@ namespace Shop1.Data
                 price = 99000,
                 isFavourite = true,
                 available = true,
-                Category = Categories["Електромобілі"]
+                Category = Categories["Класичні автомобілі"]
             },
 
             new Car()
@@ -65,7 +65,7 @@ namespace Shop1.Data
                 price = 999000,
                 isFavourite = true,
                 available = true,
-                Category = Categories["Електромобілі"]
+                Category = Categories["Класичні автомобілі"]
             },
 
             new Car()
@@ -77,7 +77,7 @@ namespace Shop1.Data
                 price = 900,
                 isFavourite = true,
                 available = true,
-                Category = Categories["Електромобілі"]
+                Category = Categories["Класичні автомобілі"]
             }
 
 

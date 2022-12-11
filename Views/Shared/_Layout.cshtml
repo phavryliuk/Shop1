@@ -55,12 +55,54 @@
 
 
 
-<footer class="border-top footer text-muted">
-        <div class="container">
-            Петро Гаврилюк. Усі дані захищено. &copy; 2022 - Магазин автомобілів - <a asp-area="" asp-controller="Home" asp-action="Privacy">Умови використання сайту</a>
+
+
+
+
+@*    <div class="b-example-divider"></div>
+
+<div class="container">
+
+    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+        <div class="col mb-3">
+            <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+            </a>
+            <p class="text-muted">Петро Гаврилюк. Усі дані захищено. &copy; 2022-Магазин автомобілів. <a asp-area="" asp-controller="Home" asp-action="Privacy">Умови використання сайту</a></p>
+        </div>
+        <div class="col mb-3">
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+</div>
+
+*@
+
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <p class="col-md-4 mb-0 text-muted">Petro Havryliuk - 2022 &copy; All rights reserved. </p>
+
+        <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+        </a>
+
+        <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="https://localhost:44370/" class="nav-link px-2 text-muted">Домашня</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+                <li class="nav-item"><a href="https://localhost:44370/home/privacy" class="nav-link px-2 text-muted">Умови</a></li>
+        </ul>
+    </footer>
+</div>
+
+
+
+
+
+
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", false)

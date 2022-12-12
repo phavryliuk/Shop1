@@ -6,7 +6,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Client;
-using Shop1.Migrations;
+
 using Shop1.Models;
 
 namespace Shop1.Data.Models

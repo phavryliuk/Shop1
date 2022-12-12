@@ -1,0 +1,23 @@
+﻿@model
+
+<div class="row">
+    <h3>Оформити покупку</h3>
+    <form asp-action="Checkout" method="post" class="form-text">
+        <div class="form-group">
+            <label asp-for="name"></label>
+            <div class="col-md-5">
+                <input asp-for="name" class="form-control"/>
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            
+
+        </div>
+
+    </form>
+
+
+
+
+
+
+</div>

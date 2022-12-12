@@ -82,7 +82,7 @@ public class Startup
         using (var scope = app.ApplicationServices.CreateScope())
         {
             AppDbContent content = scope.ServiceProvider.GetRequiredService<AppDbContent>();
-            DBObjects.Initial(content);
+            DbObjects.Initial(content);
         }
 
         app.UseHttpsRedirection();

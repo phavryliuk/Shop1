@@ -12,8 +12,8 @@ using Shop1.Data;
 namespace Shop1.Migrations
 {
     [DbContext(typeof(AppDbContent))]
-    [Migration("20221211090751_ShopCart")]
-    partial class ShopCart
+    [Migration("20221212085833_3")]
+    partial class _3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -83,6 +83,63 @@ namespace Shop1.Migrations
                     b.ToTable("Category");
                 });
 
+            modelBuilder.Entity("Shop1.Data.Models.OrderDetail", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("orderId")
+                        .HasColumnType("int");
+
+                    b.Property<long>("price")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("CarId");
+
+                    b.HasIndex("orderId");
+
+                    b.ToTable("OrderDetail");
+                });
+
+            modelBuilder.Entity("Shop1.Models.Order", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("adress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("orderTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("surname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Order");
+                });
+
             modelBuilder.Entity("Shop1.Models.ShopCartItem", b =>
                 {
                     b.Property<int>("id")
@@ -118,6 +175,25 @@ namespace Shop1.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("Shop1.Data.Models.OrderDetail", b =>
+                {
+                    b.HasOne("Shop1.Data.Models.Car", "car")
+                        .WithMany()
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Shop1.Models.Order", "order")
+                        .WithMany("orderDetail")
+                        .HasForeignKey("orderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("car");
+
+                    b.Navigation("order");
+                });
+
             modelBuilder.Entity("Shop1.Models.ShopCartItem", b =>
                 {
                     b.HasOne("Shop1.Data.Models.Car", "car")
@@ -130,6 +206,11 @@ namespace Shop1.Migrations
             modelBuilder.Entity("Shop1.Data.Models.Category", b =>
                 {
                     b.Navigation("cars");
+                });
+
+            modelBuilder.Entity("Shop1.Models.Order", b =>
+                {
+                    b.Navigation("orderDetail");
                 });
 #pragma warning restore 612, 618
         }

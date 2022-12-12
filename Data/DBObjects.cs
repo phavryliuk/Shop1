@@ -6,11 +6,10 @@ using Shop1.Data.Models;
 
 namespace Shop1.Data
 {
-    public class DBObjects
+    public class DbObjects
     {
         public static void Initial(AppDbContent content)
         {
-
 
             if (content.Category.Any())
                 content.Category.AddRange(Categories.Select(c => c.Value));
@@ -29,7 +28,7 @@ namespace Shop1.Data
                         price = 900,
                         isFavourite = true,
                         available = true,
-                        Category = Categories["Класичні автомобілі"]
+                        Category = Categories["Бензинові"]
                     },
 
             new Car()
@@ -53,7 +52,7 @@ namespace Shop1.Data
                 price = 99000,
                 isFavourite = true,
                 available = true,
-                Category = Categories["Класичні автомобілі"]
+                Category = Categories["Дизельні"]
             },
 
             new Car()
@@ -65,10 +64,34 @@ namespace Shop1.Data
                 price = 999000,
                 isFavourite = true,
                 available = true,
-                Category = Categories["Класичні автомобілі"]
+                Category = Categories["Бензинові"]
             },
+                    
+                    new Car()
+                    {
+                        name = "1963 BSA Rocket Gold Star",
+                        shortDesc = "Крутий мопед",
+                        longDesc = "Вартий уваги. Привезений з США!",
+                        img = "/img/moto1.jpg",
+                        price = 50000,
+                        isFavourite = true,
+                        available = true,
+                        Category = Categories["Мотоцикли"]
+                    },
 
-            new Car()
+                    new Car()
+                    {
+                        name = "1963 BSA Rocket Gold Star",
+                        shortDesc = "Крутий велик",
+                        longDesc = "Вартий уваги. Привезений з США!",
+                        img = "/img/moto1.jpg",
+                        price = 50000,
+                        isFavourite = true,
+                        available = true,
+                        Category = Categories["Велосипеди"]
+                    },
+
+                    new Car()
             {
                 name = "Таврія",
                 shortDesc = "Чисто для душі та морального відпочинку",
@@ -77,10 +100,8 @@ namespace Shop1.Data
                 price = 900,
                 isFavourite = true,
                 available = true,
-                Category = Categories["Класичні автомобілі"]
+                Category = Categories["Бензинові"]
             }
-
-
                     );
             }
 
@@ -101,7 +122,11 @@ namespace Shop1.Data
                     var list = new Category[]
                     {
                         new Category { categoryName = "Електромобілі", desc = "Сучасний вид транспорту" },
-                        new Category { categoryName = "Класичні автомобілі", desc = "Автомобілі з двигуном внутрішнього згорання" }
+                        new Category { categoryName = "Дизельні", desc = "Автомобілі з двигуном внутрішнього згорання" },
+                        new Category { categoryName = "Бензинові", desc = "Автомобілі з двигуном внутрішнього згорання" },
+                        new Category { categoryName = "Мотоцикли", desc = "Для любителів екстріму" },
+                        new Category { categoryName = "Велосипеди", desc = "Простий і екологічний странспорт" }
+
                     };
 
                 category = new Dictionary<string, Category>();

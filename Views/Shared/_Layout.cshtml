@@ -11,25 +11,22 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Головна сторінка</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Головна</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Cars" asp-action="List">Каталог авто</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Cars" asp-action="List">Форум автолюбителів</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Cars" asp-action="List">Новини авто</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Cars" asp-action="List">Блог</a>
-                        </li>
+                        <li class="nav-item"><a href="https://localhost:44370/Cars/List/Electro" class="nav-link px-2 text-light">Електромобілі</a></li>
+                        <li class="nav-item"><a href="https://localhost:44370/Cars/List/Diesel" class="nav-link px-2 text-light">Дизельні</a></li>
+                        <li class="nav-item"><a href="https://localhost:44370/Cars/List/Gasoline" class="nav-link px-2 text-light">Бензинові</a></li>
+                        <li class="nav-item"><a href="https://localhost:44370/Cars/List/Motorcycle" class="nav-link px-2 text-light">Мотоцикли</a></li>
+                        <li class="nav-item"><a href="https://localhost:44370/Cars/List/Bicycle" class="nav-link px-2 text-light">Велосипеди</a></li>
+                        <li class="nav-item"><a href="https://localhost:44370/Home/News" class="nav-link px-2 text-light">Новини</a></li>
+
+
+
                     </ul>
                 </div>
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">

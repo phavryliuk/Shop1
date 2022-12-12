@@ -2,38 +2,39 @@
 using System.Linq;
 using Shop1.Data.interfaces;
 using Shop1.Data.Models;
-using Shop1.Models;
 
 namespace Shop1.Data.Repository
 {
     public class OrdersRepository : IAllOrders
     {
-        private readonly AppDbContent appDbContent;
-        private readonly ShopCart shopCart;
+        private readonly AppDbContent _appDbContent;
+        private readonly ShopCart _shopCart;
 
         public OrdersRepository(AppDbContent appDbContent, ShopCart shopCart)
         {
-            this.appDbContent = appDbContent;
-            this.shopCart = shopCart;
+            this._appDbContent = appDbContent;
+            this._shopCart = shopCart;
         }
 
         public void createOrder(Order order)
         {
             order.orderTime = DateTime.Now;
-            appDbContent.Order.Add(order);
+            _appDbContent.Order.Add(order);
 
-            var items = shopCart.listShopItems;
+            var items = _shopCart.listShopItems;
 
-            foreach (var orderDetail in items.Select(el => new OrderDetail()
-                     {
-                         CarId = el.car.id,
-                         orderId = order.id,
-                         price = el.car.price
-                     }))
+            foreach (var el in items)
             {
-                appDbContent.OrderDetail.Add(orderDetail);
+                var orderDetail = new OrderDetail()
+                {
+                    CarId = el.car.id,
+                    orderId = order.id,
+                    price = el.car.price
+                };
+                _appDbContent.OrderDetail.Add(orderDetail);
             }
-            appDbContent.SaveChanges();
+
+            //_appDbContent.SaveChanges();
 
         }
     }

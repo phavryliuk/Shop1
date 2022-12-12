@@ -1,7 +1,6 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using Shop1.Data.Models;
-using Shop1.Models;
 
 
 namespace Shop1.Data

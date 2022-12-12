@@ -1,5 +1,4 @@
 ﻿using System;
-using Shop1.Models;
 
 namespace Shop1.Data.Models
 {

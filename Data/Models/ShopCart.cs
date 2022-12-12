@@ -7,8 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Client;
 
-using Shop1.Models;
-
 namespace Shop1.Data.Models
 {
     public class ShopCart

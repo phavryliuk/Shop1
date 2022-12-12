@@ -23,6 +23,8 @@ namespace Shop1.Data.Repository
 
         public IEnumerable<Car> GetFavCars => appDbContent.Car.Where(p => p.isFavourite).Include(c => c.Category);
 
+
+
         public Car GetObjectCar(int carId) => appDbContent.Car.FirstOrDefault(p => p.id == carId);
     }
 }

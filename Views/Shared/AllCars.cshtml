@@ -2,8 +2,8 @@
 
 <div class="col-lg-4">
     <img class ="img-thumbnail" src="@Model.img" alt="@Model.name"/>
-    <h2>@Model.name</h2>
+    <h4>@Model.name</h4>
     <p>@Model.shortDesc</p>
     <h6>Ціна: @Model.price.ToString("C")</h6>
-    <p><a class="btn btn-warning" href="https://localhost:44370/ShopCart/Index">Детальніше</a></p>
+    <p><a class="btn btn-warning" asp-controller="ShopCart" asp-action="addToCart" asp-route-id="@Model.id">В кошик</a></p>
 </div>

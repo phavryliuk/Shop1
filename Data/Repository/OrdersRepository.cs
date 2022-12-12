@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Shop1.Data.interfaces;
 using Shop1.Data.Models;
 using Shop1.Models;
@@ -23,15 +24,13 @@ namespace Shop1.Data.Repository
 
             var items = shopCart.listShopItems;
 
-            foreach (var el in items)
+            foreach (var orderDetail in items.Select(el => new OrderDetail()
+                     {
+                         CarId = el.car.id,
+                         orderId = order.id,
+                         price = el.car.price
+                     }))
             {
-                var orderDetail = new OrderDetail()
-                {
-                    CarId = el.car.id,
-                    orderId = order.id,
-                    price = el.car.price
-                };
-
                 appDbContent.OrderDetail.Add(orderDetail);
             }
             appDbContent.SaveChanges();

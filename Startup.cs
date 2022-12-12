@@ -47,6 +47,9 @@ public class Startup
             options.UseSqlServer(_confstring.GetConnectionString("DefaultConnection")));
         services.AddTransient<IAllCars, CarRepository>();
         services.AddTransient<ICarsCategory, CategoryRepository>();
+
+        services.AddTransient<IAllOrders, OrdersRepository>();
+
         services.AddControllersWithViews();
 
 

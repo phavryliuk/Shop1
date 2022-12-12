@@ -58,6 +58,7 @@ public class Startup
         services.AddMvc();
         services.AddMemoryCache();
         services.AddSession();
+        services.AddApplicationInsightsTelemetry(Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]);
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

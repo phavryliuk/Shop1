@@ -18,8 +18,8 @@ public class HomeController : Controller
         return View();
     }
 
-    //Маршрутизація сторінки авто
-    public ViewResult CarPage()
+    //Маршрутизація сторінки новин
+    public ViewResult News()
     {
         return View();
     }

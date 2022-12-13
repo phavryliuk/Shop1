@@ -5,11 +5,11 @@ namespace Shop1.Controllers;
 
 public class HomeController : Controller
 {
-    private IAllCars _carRep;
+    public IAllCars carRep { get; }
 
     public HomeController(IAllCars carRep)
     {
-        _carRep = carRep;
+        this.carRep = carRep;
     }
     
     //Маршрутизація головної сторінки

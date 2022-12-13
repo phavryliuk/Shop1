@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Shop1.Data.interfaces;
 using Shop1.Data.Models;
 

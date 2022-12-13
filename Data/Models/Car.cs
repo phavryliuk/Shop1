@@ -10,6 +10,5 @@ public class Car
     public int price { set; get; }
     public bool isFavourite { get; set; }
     public bool available { set; get; }
-    public int categoryId { set; get; }
     public virtual Category Category { set; get; }
 }

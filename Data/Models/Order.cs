@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Shop1.Data.Models
@@ -46,11 +44,5 @@ namespace Shop1.Data.Models
         [ScaffoldColumn(false)]
 
         public DateTime orderTime { get; set; }
-
-        public List<OrderDetail> orderDetail { get; set; }
-
-
-
-
     }
 }

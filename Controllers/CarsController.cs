@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Shop1.Data.interfaces;
@@ -15,19 +14,18 @@ namespace Shop1.Controllers
         public class CarsController : Controller
         {
             private readonly IAllCars _allCars;
-            private readonly ICarsCategory _allCategories;
+            public ICarsCategory allCategories { get; }
 
             public CarsController(IAllCars iAllCars, ICarsCategory iCarsCat)
             {
                 _allCars = iAllCars;
-                _allCategories = iCarsCat;
+                allCategories = iCarsCat;
             }
 
             [Route("Cars/List")]
             [Route("Cars/List/{category}")]
             public ViewResult List(string category)
             {
-                string _category = category;
                 IEnumerable<Car> cars = null;
                 string CurrCategory = "";
 

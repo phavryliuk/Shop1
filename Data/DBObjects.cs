@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 using Shop1.Data.Models;
 
 namespace Shop1.Data
@@ -121,11 +119,11 @@ namespace Shop1.Data
                 {
                     var list = new Category[]
                     {
-                        new Category { categoryName = "Електромобілі", desc = "Сучасний вид транспорту" },
-                        new Category { categoryName = "Дизельні", desc = "Автомобілі з двигуном внутрішнього згорання" },
-                        new Category { categoryName = "Бензинові", desc = "Автомобілі з двигуном внутрішнього згорання" },
-                        new Category { categoryName = "Мотоцикли", desc = "Для любителів екстріму" },
-                        new Category { categoryName = "Велосипеди", desc = "Простий і екологічний странспорт" }
+                        new() { categoryName = "Електромобілі", desc = "Сучасний вид транспорту" },
+                        new() { categoryName = "Дизельні", desc = "Автомобілі з двигуном внутрішнього згорання" },
+                        new() { categoryName = "Бензинові", desc = "Автомобілі з двигуном внутрішнього згорання" },
+                        new() { categoryName = "Мотоцикли", desc = "Для любителів екстріму" },
+                        new() { categoryName = "Велосипеди", desc = "Простий і екологічний странспорт" }
 
                     };
 

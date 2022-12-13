@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Shop1.Data.interfaces;
 using Shop1.Data.Models;
 

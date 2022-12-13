@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,9 +7,6 @@ using Shop1.Data.interfaces;
 
 
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Shop1.Data;
 using Shop1.Data.Models;
@@ -50,7 +46,7 @@ public class Startup
         services.AddTransient<IAllOrders, OrdersRepository>();
         services.AddControllersWithViews();
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-        services.AddScoped(sp => ShopCart.GetCart(sp));
+        services.AddScoped(ShopCart.GetCart);
         services.AddMvc();
         services.AddMemoryCache();
         services.AddSession();

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Shop1.Data.Models
+﻿namespace Shop1.Data.Models
 {
     public class OrderDetail
     {

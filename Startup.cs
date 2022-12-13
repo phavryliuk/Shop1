@@ -47,18 +47,13 @@ public class Startup
             options.UseSqlServer(_confstring.GetConnectionString("DefaultConnection")));
         services.AddTransient<IAllCars, CarRepository>();
         services.AddTransient<ICarsCategory, CategoryRepository>();
-
         services.AddTransient<IAllOrders, OrdersRepository>();
-
         services.AddControllersWithViews();
-
-
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         services.AddScoped(sp => ShopCart.GetCart(sp));
         services.AddMvc();
         services.AddMemoryCache();
         services.AddSession();
-        services.AddApplicationInsightsTelemetry(Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]);
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -80,9 +75,6 @@ public class Startup
         app.UseStaticFiles();
         app.UseSession();
 
-
-        //app.UseMvcWithDefaultRoute();
-
         using (var scope = app.ApplicationServices.CreateScope())
         {
             AppDbContent content = scope.ServiceProvider.GetRequiredService<AppDbContent>();
@@ -90,12 +82,8 @@ public class Startup
         }
 
         app.UseHttpsRedirection();
-
-
         app.UseRouting();
-
         app.UseAuthorization();
-
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllerRoute(
@@ -104,6 +92,5 @@ public class Startup
         });
     }
 }
-
 
 
